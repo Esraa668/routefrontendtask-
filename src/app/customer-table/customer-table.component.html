@@ -1,0 +1,54 @@
+<section class="shadow w-75 mx-auto rounded-3 m-0 p-3">
+    <div class="d-flex justify-content-evenly align-items-center w-75">
+        <div class="filters">
+            <input type="text" id="customerNameFilter" [(ngModel)]="customerNameFilter" (input)="applyFilters()"
+                class="btn text-center mx-auto m-2 text" placeholder="Filter by name..." />
+        </div>
+        <div>
+            <input type="number" id="amount" name="amount" class="btn text-center mx-auto m-2 text"
+                placeholder="Filter by amount..." [(ngModel)]="filterAmount" (input)="applyFilters()" />
+        </div>
+    </div>
+
+    <table id="customerTable" class="w-100">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Transactions</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of filteredCustomers" class="border-tr">
+                <td><i class="fa-solid fa-id-card p-1"></i>{{ customer.id }}</td>
+                <td><i class="fa-solid fa-person p-1"></i> {{ customer.name }}</td>
+                <td>
+                    <table *ngIf="customerTransactions[customer.id]">
+                        <tr *ngFor="let transaction of customerTransactions[customer.id]">
+                            <td><i class="fa-solid fa-calendar-days p-1"></i>Date: {{ transaction.date }}</td>
+                            <td>Amount: {{ transaction.amount }}</td>
+                        </tr>
+                    </table>
+                    <div class="rounded w-50">
+                        <button class="border border-0 btntotal">
+                            Total Amount: {{ totalAmounts[customer.id] }}
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button (click)="select(customer.id)"
+                            class="btn bg-light btn-select d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="chart-section">
+        <div [chart]="chart"></div>
+    </div>
+</section>

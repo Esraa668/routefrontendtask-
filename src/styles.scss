@@ -1,0 +1,52 @@
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  background-color: #101010 !important;
+}
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  color: blanchedalmond;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.btn-select {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px !important;
+  color: bisque;
+}
+.btn-select:hover {
+  background-color: rgb(124, 108, 85) !important;
+}
+
+.filters {
+  margin-bottom: 10px;
+}
+.button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(137, 145, 145);
+}
+.border-tr {
+  border: solid 1px white;
+  width: 75%;
+  margin: auto;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+}
+.btntotal {
+  border-radius: 20px;
+  padding: 5px;
+  background-color: bisque;
+}
+.text {
+  color: #ddd !important;
+}
